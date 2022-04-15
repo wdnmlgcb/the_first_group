@@ -1,2 +1,3 @@
 # the_first_group
-this is my first project
+这是我的第一个项目
+the data_analysis programe
