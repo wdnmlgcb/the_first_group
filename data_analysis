@@ -1,0 +1,211 @@
+'''数据分析实例'''
+
+'''导入库'''
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+'''读入数据'''
+a = np.loadtxt("iris.data", dtype = "str", delimiter = ",", unpack = False).reshape(150,5) #读取数据并保存为数组
+
+
+'''数据处理'''
+first = a[:,0]  #截取第一列数据
+first_list = np.array(first, dtype = "float")    #转换为浮点数
+second = a[:,1] #第二列
+second_list = np.array(second, dtype = "float") #同上
+third = a[:,2]  #第三列
+third_list = np.array(third, dtype = "float")   #同上
+fourth = a[:,3] #第四列
+fourth_list = np.array(fourth, dtype = "float") #同上
+
+
+'''数据计算'''
+n = eval(input("输入想要查看的类型标号："))
+if n == 0:
+        first_Standard_deviation = np.std(first_list,axis = None)   #第一列标准差
+        first_Median_value = np.median(first_list)  #第一列中值
+        first_mean_value = np.mean(first_list,axis = None)  #第一列平均值
+
+        second_Standard_deviation = np.std(second_list,axis = None)   #第二列标准差
+        second_Median_value = np.median(second_list)  #第二列中值
+        second_mean_value = np.mean(second_list,axis = None)  #第二列平均值
+
+        third_Standard_deviation = np.std(third_list,axis = None)   #第三列标准差
+        third_Median_value = np.median(third_list)  #第三列中值
+        third_mean_value = np.mean(third_list,axis = None)  #第三列平均值
+
+        fourth_Standard_deviation = np.std(fourth_list,axis = None)   #第四列标准差
+        fourth_Median_value = np.median(fourth_list)  #第四列中值
+        fourth_mean_value = np.mean(fourth_list,axis = None)  #第四列平均值
+
+        sum0 = {'总平均值': [first_mean_value, second_mean_value, third_mean_value, fourth_mean_value],
+                '总中值': [first_Median_value, second_Median_value, third_Median_value, fourth_Median_value],
+                '总标准差': [first_Standard_deviation, second_Standard_deviation, third_Standard_deviation,fourth_Standard_deviation], }
+        matrix0 = pd.DataFrame(sum0, index=['first_list', 'second_list', 'third_list', 'fourth_list'])
+        print(matrix0)  # 将数据以矩阵的形式输出
+
+
+elif n == 1:
+        first_one_Standard_deviation = np.std(first_list[:49],axis = None)   #第一种类型第一列标准差
+        first_one_Median_value = np.median(first_list[:49])  #第一种类型第一列中值
+        first_one_mean_value = np.mean(first_list[:49],axis = None)  #第一种类型第一列平均值
+
+        first_two_Standard_deviation = np.std(second_list[:49],axis = None)   #第一种类型第二列标准差
+        first_two_Median_value = np.median(second_list[:49])  #第一种类型第二列中值
+        first_two_mean_value = np.mean(second_list[:49],axis = None)  #第一种类型第二列平均值
+
+        first_three_Standard_deviation = np.std(third_list[:49],axis = None)   #第一种类型第三列标准差
+        first_three_Median_value = np.median(third_list[:49])  #第一种类型第三列中值
+        first_three_mean_value = np.mean(third_list[:49],axis = None)  #第一种类型第三列平均值
+
+        first_four_Standard_deviation = np.std(fourth_list[:49],axis = None)   #第一种类型第四列标准差
+        first_four_Median_value = np.median(fourth_list[:49])  #第一种类型第四列中值
+        first_four_mean_value = np.mean(fourth_list[:49],axis = None)  #第一种类型第四列平均值
+
+        sum1 = {'第一列': [first_one_Standard_deviation, first_one_Median_value, first_one_mean_value],
+                '第二列': [first_two_Standard_deviation, first_two_Median_value, first_two_mean_value],
+                '第三列': [first_three_Standard_deviation, first_three_Median_value, first_three_mean_value],
+                '第四列': [first_four_Standard_deviation, first_four_Median_value, first_four_mean_value]}
+        matrix1 = pd.DataFrame(sum1, index=['标准差', '中值', '平均值'])
+        print(matrix1)  # 将数据以矩阵的形式输出
+
+
+elif n == 2:
+        second_one_Standard_deviation = np.std(first_list[50:99],axis = None)   #第二种类型第一列标准差
+        second_one_Median_value = np.median(first_list[50:99])  #第二种类型第一列中值
+        second_one_mean_value = np.mean(first_list[50:99],axis = None)  #第二种类型第一列平均值
+
+        second_two_Standard_deviation = np.std(second_list[50:99],axis = None)   #第二种类型第二列标准差
+        second_two_Median_value = np.median(second_list[50:99])  #第二种类型第二列中值
+        second_two_mean_value = np.mean(second_list[50:99],axis = None)  #第二种类型第二列平均值
+
+        second_three_Standard_deviation = np.std(third_list[50:99],axis = None)   #第二种类型第三列标准差
+        second_three_Median_value = np.median(third_list[50:99])  #第二种类型第三列中值
+        second_three_mean_value = np.mean(third_list[50:99],axis = None)  #第二种类型第三列平均值
+
+        second_four_Standard_deviation = np.std(fourth_list[50:99],axis = None)   #第二种类型第四列标准差
+        second_four_Median_value = np.median(fourth_list[50:99])  #第二种类型第四列中值
+        second_four_mean_value = np.mean(fourth_list[50:99],axis = None)  #第二种类型第四列平均值
+
+        sum2 = {'第一列': [second_one_Standard_deviation, second_one_Median_value, second_one_mean_value],
+                '第二列': [second_two_Standard_deviation, second_two_Median_value, second_two_mean_value],
+                '第三列': [second_three_Standard_deviation, second_three_Median_value, second_three_mean_value],
+                '第四列': [second_four_Standard_deviation, second_four_Median_value, second_four_mean_value]}
+        matrix2 = pd.DataFrame(sum2, index=['标准差', '中值', '平均值'])
+        print(matrix2)  # 将数据以矩阵的形式输出
+
+
+elif n == 3:
+        third_one_Standard_deviation = np.std(first_list[100:],axis = None)   #第三种类型第一列标准差
+        third_one_Median_value = np.median(first_list[100:])  #第三种类型第一列中值
+        third_one_mean_value = np.mean(first_list[100:],axis = None)  #第三种类型第一列平均值
+
+        third_two_Standard_deviation = np.std(second_list[100:],axis = None)   #第三种类型第二列标准差
+        third_two_Median_value = np.median(second_list[100:])  #第三种类型第二列中值
+        third_two_mean_value = np.mean(second_list[100:],axis = None)  #第三种类型第二列平均值
+
+        third_three_Standard_deviation = np.std(third_list[100:],axis = None)   #第三种类型第三列标准差
+        third_three_Median_value = np.median(third_list[100:])  #第三种类型第三列中值
+        third_three_mean_value = np.mean(third_list[100:],axis = None)  #第三种类型第三列平均值
+
+        third_four_Standard_deviation = np.std(fourth_list[100:],axis = None)   #第三种类型第四列标准差
+        third_four_Median_value = np.median(fourth_list[100:])  #第三种类型第四列中值
+        third_four_mean_value = np.mean(fourth_list[100:],axis = None)  #第三种类型第四列平均值
+
+        sum3 = {'第一列': [third_one_Standard_deviation, third_one_Median_value, third_one_mean_value],
+                '第二列': [third_two_Standard_deviation, third_two_Median_value, third_two_mean_value],
+                '第三列': [third_three_Standard_deviation, third_three_Median_value, third_three_mean_value],
+                '第四列': [third_four_Standard_deviation, third_four_Median_value, third_four_mean_value]}
+        matrix3 = pd.DataFrame(sum3, index=['标准差', '中值', '平均值'])
+        print(matrix3)  # 将数据以矩阵的形式输出
+
+
+
+'''绘制饼图'''
+labels = 'Iris-setosa', 'Iris-versicolor', 'Iris-virginica' #三个类型
+sizes = [100/3,100/3,100/3]  # 指出尺寸
+explode = (0.1, 0.1, 0.1)  # 指出谁突出
+
+plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
+plt.axis('equal')  # 表示绘制图时，x和y方向上尺寸相等
+plt.show()
+
+
+'''绘制直方图'''
+plt.hist(first_list, 50, density=False, histtype='stepfilled', facecolor='c', alpha=0.75)
+plt.title('第一列(first_list)',fontproperties = "Kaiti")
+plt.xlabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.ylabel("个数(count)",fontproperties = "Kaiti")
+plt.show()  #绘制出第一列数组信息
+
+plt.hist(second_list, 50, density=False, histtype='stepfilled', facecolor='m', alpha=0.75)
+plt.title('第二列(second_list)',fontproperties = "Kaiti")
+plt.xlabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.ylabel("个数(count)",fontproperties = "Kaiti")
+plt.show()  #绘制出第二列数组信息
+
+plt.hist(third_list, 50, density=False, histtype='stepfilled', facecolor='#030022', alpha=0.75)
+plt.title('第三列(third_list)',fontproperties = "Kaiti")
+plt.xlabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.ylabel("个数(count)",fontproperties = "Kaiti")
+plt.show()  #绘制出第三列数组信息
+
+plt.hist(fourth_list, 50, density=False, histtype='stepfilled', facecolor='0.1', alpha=0.75)
+plt.title('第四列(fourth_list)',fontproperties = "Kaiti")
+plt.xlabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.ylabel("个数(count)",fontproperties = "Kaiti")
+plt.show()  #绘制出第四列数组信息
+
+
+'''绘制散点图'''
+number = np.arange(150) #横坐标
+
+fig, ax = plt.subplots()    #给出绘制区域
+ax.plot(number, first_list, 'o')
+ax.set_title("第一列(first_list)",fontproperties = "Kaiti")
+plt.show()  #绘制出第一列数组信息
+
+fig, ax = plt.subplots()
+ax.plot(number, second_list, 'o')
+ax.set_title("第二列(second_list)",fontproperties = "Kaiti")
+plt.show()  #绘制出第二列数组信息
+
+fig, ax = plt.subplots()
+ax.plot(number, third_list, 'o')
+ax.set_title("第三列(third_list)",fontproperties = "Kaiti")
+plt.show()  #绘制出第三列数组信息
+
+fig, ax = plt.subplots()
+ax.plot(number, fourth_list, 'o')
+ax.set_title("第四列(fourth_list)",fontproperties = "Kaiti")
+plt.show()  #绘制出第四列数组信息
+
+
+'''绘制折线图'''
+plt.plot(first_list,'#233333')  # 只有一维，默认为y轴，x轴为这些元素的下标
+plt.ylabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.title("第一组(first_list)",fontproperties = "SimHei")
+plt.show()  #绘制出第一列数组信息
+
+plt.plot(second_list,'#014250')
+plt.ylabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.title("第一组(first_list)",fontproperties = "SimHei")
+plt.show()  #绘制出第一列数组信息
+
+plt.plot(third_list,'#825866')
+plt.ylabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.title("第一组(first_list)",fontproperties = "SimHei")
+plt.show()  #绘制出第一列数组信息
+
+plt.plot(fourth_list,'#097533')
+plt.ylabel("数据(iris_datas)",fontproperties = "Kaiti")
+plt.title("第一组(first_list)",fontproperties = "SimHei")
+plt.show()  #绘制出第一列数组信息
+
+
+
+
+
+
